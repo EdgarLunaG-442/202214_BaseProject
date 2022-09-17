@@ -26,7 +26,7 @@ export class CityService {
   }
 
   async findAll(): Promise<CityEntity[]> {
-    return await this.cityRepository.find();
+    return await this.cityRepository.find({ relations: ['supermarkets'] });
   }
 
   async findOne(cityId: string): Promise<CityEntity> {

@@ -27,7 +27,7 @@ export class SupermarketService {
   }
 
   async findAll(): Promise<SupermarketEntity[]> {
-    return await this.supermarketRepository.find();
+    return await this.supermarketRepository.find({ relations: ['cities'] });
   }
 
   async findOne(superMarketId: string): Promise<SupermarketEntity> {
