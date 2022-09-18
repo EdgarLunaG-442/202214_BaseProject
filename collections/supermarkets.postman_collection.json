@@ -1,0 +1,901 @@
+{
+	"info": {
+		"_postman_id": "bcc0aa1d-beca-4c20-8f31-ea474e9bb6b4",
+		"name": "supermarkets",
+		"description": "Representa los productos característicos que conforman la cultura gastronómica.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create supermarket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Ara\",\n  \"lng\": 20,\n  \"lat\": 10,\n  \"webpage\": \"https://aratiendas.com/\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/supermarkets",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"supermarkets"
+					]
+				},
+				"description": "Crea un nuevo producto"
+			},
+			"response": [
+				{
+					"name": "Create supermarket",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Ara\",\n  \"lng\": 20,\n  \"lat\": 10,\n  \"webpage\": \"https://aratiendas.com/\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/supermarkets",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"supermarkets"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "112"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"70-0Qto8MMPfU8gzR8CQio/lEbErH4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 14:02:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"Ara\",\n    \"lng\": 20,\n    \"lat\": 10,\n    \"webpage\": \"https://aratiendas.com/\",\n    \"id\": \"36a66a2c-2877-4339-ba95-42523ba53d12\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create invalid supermarket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"   pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Ara\",\n  \"webpage\": \"https://aratiendas.com/\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/supermarkets",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"supermarkets"
+					]
+				},
+				"description": "Crea un nuevo producto"
+			},
+			"response": [
+				{
+					"name": "Create invalid supermarket",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Ara\",\n  \"webpage\": \"https://aratiendas.com/\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/supermarkets",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"supermarkets"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "178"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b2-aji9l6vh9WFSsznQpHiFibuinF0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 14:03:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 400,\n    \"message\": [\n        \"lng must be a number conforming to the specified constraints\",\n        \"lat must be a number conforming to the specified constraints\"\n    ],\n    \"error\": \"Bad Request\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get supermarkets",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of products > ' + 0, function () {",
+							"   var data = pm.response.json()",
+							"   pm.expect(data.length).to.greaterThan(0)",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/supermarkets",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"supermarkets"
+					]
+				},
+				"description": "Obtiene una lista de todos los productos"
+			},
+			"response": [
+				{
+					"name": "Get supermarkets",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/supermarkets",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"supermarkets"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "671"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"29f-0VHEOwpb14rJkKGrWykeYrRCWec\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 14:04:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"9f77c649-1f22-43d4-a145-efff05eac0c3\",\n        \"name\": \"string\",\n        \"lng\": 0,\n        \"lat\": 0,\n        \"webpage\": \"string\",\n        \"cities\": []\n    },\n    {\n        \"id\": \"97abfb16-42e2-4aaa-954f-48123171c335\",\n        \"name\": \"string\",\n        \"lng\": 0,\n        \"lat\": 0,\n        \"webpage\": \"string\",\n        \"cities\": []\n    },\n    {\n        \"id\": \"36a66a2c-2877-4339-ba95-42523ba53d12\",\n        \"name\": \"Ara\",\n        \"lng\": 20,\n        \"lat\": 10,\n        \"webpage\": \"https://aratiendas.com/\",\n        \"cities\": []\n    },\n    {\n        \"id\": \"020f18c7-f415-4f75-84bb-c51df923189c\",\n        \"name\": \"string\",\n        \"lng\": 0,\n        \"lat\": 0,\n        \"webpage\": \"string\",\n        \"cities\": []\n    },\n    {\n        \"id\": \"23cee49a-2360-46e8-81b8-8b940a451794\",\n        \"name\": \"string\",\n        \"lng\": 0,\n        \"lat\": 0,\n        \"webpage\": \"string\",\n        \"cities\": []\n    },\n    {\n        \"id\": \"3588c574-2ce2-4c44-94cc-445c0ca4fe6b\",\n        \"name\": \"string\",\n        \"lng\": 0,\n        \"lat\": 0,\n        \"webpage\": \"string\",\n        \"cities\": []\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get supermarket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/supermarkets/{{existingSupermarket}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"supermarkets",
+						"{{existingSupermarket}}"
+					]
+				},
+				"description": "Obtiene un producto segun el ID."
+			},
+			"response": [
+				{
+					"name": "Get supermarket",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/supermarkets/{{existingSupermarket}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"supermarkets",
+								"{{existingSupermarket}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "124"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"7c-WSZCKIeIDKTYA26IL7jnMOvLzXs\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 14:04:33 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"36a66a2c-2877-4339-ba95-42523ba53d12\",\n    \"name\": \"Ara\",\n    \"lng\": 20,\n    \"lat\": 10,\n    \"webpage\": \"https://aratiendas.com/\",\n    \"cities\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Get non-existing supermarket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"Supermarket with given Id cannot be found\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/supermarkets/{{wrongSupermarket}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"supermarkets",
+						"{{wrongSupermarket}}"
+					]
+				},
+				"description": "Ejemplo de un request para obtener un producto que no existe."
+			},
+			"response": [
+				{
+					"name": "Get non-existing supermarket",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/supermarkets/{{wrongSupermarket}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"supermarkets",
+								"{{wrongSupermarket}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "92"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5c-IPLfRVsLlqbh8uEESyAjfFio7ho\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 14:04:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Supermarket with given Id cannot be found\",\n    \"error\": \"Not Found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update supermarket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Ara\",\n  \"lng\": 20,\n  \"lat\": 20,\n  \"webpage\": \"https://aratiendas.com/\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/supermarkets/{{existingSupermarket}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"supermarkets",
+						"{{existingSupermarket}}"
+					]
+				},
+				"description": "Actualización de un producto segun el ID."
+			},
+			"response": [
+				{
+					"name": "Update supermarket",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Ara\",\n  \"lng\": 20,\n  \"lat\": 20,\n  \"webpage\": \"https://aratiendas.com/\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/supermarkets/{{existingSupermarket}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"supermarkets",
+								"{{existingSupermarket}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "124"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"7c-w3C2/YJ1IKSBtvjjldqzbfzvw7E\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 14:06:00 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"36a66a2c-2877-4339-ba95-42523ba53d12\",\n    \"name\": \"Ara\",\n    \"lng\": 20,\n    \"lat\": 20,\n    \"webpage\": \"https://aratiendas.com/\",\n    \"cities\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Update non-existing supermarket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"Supermarket with given Id cannot be found\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Ara\",\n  \"lng\": 20,\n  \"lat\": 20,\n  \"webpage\": \"https://aratiendas.com/\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/supermarkets/{{wrongSupermarket}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"supermarkets",
+						"{{wrongSupermarket}}"
+					]
+				},
+				"description": "Ejemplo de un request para actualizar un producto que no existe."
+			},
+			"response": [
+				{
+					"name": "Update non-existing supermarket",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Ara\",\n  \"lng\": 20,\n  \"lat\": 20,\n  \"webpage\": \"https://aratiendas.com/\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/supermarkets/{{wrongSupermarket}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"supermarkets",
+								"{{wrongSupermarket}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "92"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5c-IPLfRVsLlqbh8uEESyAjfFio7ho\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 14:06:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Supermarket with given Id cannot be found\",\n    \"error\": \"Not Found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete supermarket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/supermarkets/{{existingSupermarket}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"supermarkets",
+						"{{existingSupermarket}}"
+					]
+				},
+				"description": "Eliminación de un producto segun el ID"
+			},
+			"response": [
+				{
+					"name": "Delete supermarket",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/supermarkets/{{existingSupermarket}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"supermarkets",
+								"{{existingSupermarket}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 14:06:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete non-existing supermarket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"Supermarket with given Id cannot be found\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"historia\":null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/supermarkets/{{wrongSupermarket}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"supermarkets",
+						"{{wrongSupermarket}}"
+					]
+				},
+				"description": "Ejemplo de un request para eliminar un producto que no existe."
+			},
+			"response": [
+				{
+					"name": "Delete non-existing supermarket",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"historia\":null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/supermarkets/{{wrongSupermarket}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"supermarkets",
+								"{{wrongSupermarket}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "92"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5c-IPLfRVsLlqbh8uEESyAjfFio7ho\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 14:07:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Supermarket with given Id cannot be found\",\n    \"error\": \"Not Found\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000/api/v1"
+		},
+		{
+			"key": "existingSupermarket",
+			"value": "36a66a2c-2877-4339-ba95-42523ba53d12"
+		},
+		{
+			"key": "wrongSupermarket",
+			"value": "44d446e6-6711-48ab-a161-e0ef24a35245"
+		}
+	]
+}
