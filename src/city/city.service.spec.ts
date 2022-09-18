@@ -43,7 +43,6 @@ describe('CityService', () => {
     );
     cityList = [];
     await entitySeed();
-    console.log('');
   });
 
   it('should be defined', () => {

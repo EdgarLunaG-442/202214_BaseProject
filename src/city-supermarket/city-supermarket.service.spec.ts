@@ -161,7 +161,7 @@ describe('CitySupermarketService', () => {
     const referenceCity: CityEntity = cityList[0];
     await mainService.associateCitySuperMarkets(
       referenceCity.id,
-      superMarketList.slice(2, 4),
+      superMarketList.slice(2, 4).map((sm)=>sm.id),
     );
     const storedCity = await cityService.findOne(referenceCity.id);
     expect(storedCity.supermarkets.length).toEqual(2);

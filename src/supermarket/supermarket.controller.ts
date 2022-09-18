@@ -14,7 +14,7 @@ import { plainToInstance } from 'class-transformer';
 import { SupermarketEntity } from './supermarket.entity';
 import {ApiTags} from "@nestjs/swagger";
 
-@ApiTags('SuperMarket')
+@ApiTags('SuperMarkets')
 @Controller('supermarkets')
 export class SupermarketController {
   constructor(private supermarketService: SupermarketService) {}

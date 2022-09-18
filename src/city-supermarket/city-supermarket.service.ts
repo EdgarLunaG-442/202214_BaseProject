@@ -25,7 +25,7 @@ export class CitySupermarketService {
     );
     if (!searchedSuperMarket && !isAdding) {
       throw new PreconditionFailedException(
-        'SuperMarket with the given id is not associated to that product',
+        'SuperMarket with the given id is not associated to that city',
       );
     } else if (searchedSuperMarket && isAdding) {
       throw new ConflictException('City already has this supermarket');
@@ -53,9 +53,13 @@ export class CitySupermarketService {
 
   async associateCitySuperMarkets(
     cityId: string,
-    superMarkets: SupermarketEntity[],
+    superMarketsIds: string[],
   ): Promise<CityEntity> {
     const city = await this.cityService.findOne(cityId);
+    const superMarkets = []
+    for(let i in superMarketsIds){
+      superMarkets.push(await this.supermarketService.findOne(superMarketsIds[i]));
+    }
     city.supermarkets = superMarkets;
     await this.cityService.updateOne(cityId, city);
     return await this.cityService.findOne(cityId);
