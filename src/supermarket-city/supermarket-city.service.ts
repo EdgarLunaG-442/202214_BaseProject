@@ -71,7 +71,8 @@ export class SupermarketCityService {
 
   ): Promise<SupermarketEntity> {
     const superMarket = await this.supermarketService.findOne(superMarketId);
-    superMarket.cities = superMarket.cities.filter((city) => city.id !== cityId);
+    const undesiredCity = this.searchCity(cityId,superMarket.cities)
+    superMarket.cities = superMarket.cities.filter((city) => city.id !== undesiredCity.id);
     await this.supermarketService.updateOne(superMarketId, superMarket);
     return await this.supermarketService.findOne(superMarketId);
   }

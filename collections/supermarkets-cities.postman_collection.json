@@ -1,0 +1,965 @@
+{
+	"info": {
+		"_postman_id": "1926793a-38bc-4244-91ea-a460cddf0392",
+		"name": "supermarkets-cities",
+		"description": "Representa los productos característicos que conforman la cultura gastronómica.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add supermarket city",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Ara\",\n  \"lng\": 20,\n  \"lat\": 10,\n  \"webpage\": \"https://aratiendas.com/\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/supermarkets/{{existingSupermarket}}/cities/{{existingCity}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"supermarkets",
+						"{{existingSupermarket}}",
+						"cities",
+						"{{existingCity}}"
+					]
+				},
+				"description": "Crea un nuevo producto"
+			},
+			"response": [
+				{
+					"name": "Add supermarket city",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Ara\",\n  \"lng\": 20,\n  \"lat\": 10,\n  \"webpage\": \"https://aratiendas.com/\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/supermarkets/{{existingSupermarket}}/cities/{{existingCity}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"supermarkets",
+								"{{existingSupermarket}}",
+								"cities",
+								"{{existingCity}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "219"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"db-xDxMqgbJbwUw8OZFNH0PI5YPSHQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 17:17:12 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"9f77c649-1f22-43d4-a145-efff05eac0c3\",\n    \"name\": \"string\",\n    \"lng\": 0,\n    \"lat\": 0,\n    \"webpage\": \"string\",\n    \"cities\": [\n        {\n            \"id\": \"809bf130-c45d-4a5f-b688-d780777a9b55\",\n            \"name\": \"string\",\n            \"country\": \"string\",\n            \"citizens\": 0,\n            \"supermarkets\": []\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add non-existing city to supermarket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Ara\",\n  \"webpage\": \"https://aratiendas.com/\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/supermarkets/{{existingSupermarket}}/cities/{{wrongCity}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"supermarkets",
+						"{{existingSupermarket}}",
+						"cities",
+						"{{wrongCity}}"
+					]
+				},
+				"description": "Crea un nuevo producto"
+			},
+			"response": [
+				{
+					"name": "Add non-existing city to supermarket",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Ara\",\n  \"webpage\": \"https://aratiendas.com/\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/supermarkets/{{existingSupermarket}}/cities/{{wrongCity}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"supermarkets",
+								"{{existingSupermarket}}",
+								"cities",
+								"{{wrongCity}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "85"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"55-8m74lKASe+tVzosN5frGA3ul9ds\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 17:17:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"City with given Id cannot be found\",\n    \"error\": \"Not Found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get supermarket cities",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of supermarkets > ' + 0, function () {",
+							"   var data = pm.response.json()",
+							"   pm.expect(data.length).to.greaterThan(0)",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/supermarkets/{{existingSupermarket}}/cities",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"supermarkets",
+						"{{existingSupermarket}}",
+						"cities"
+					]
+				},
+				"description": "Obtiene una lista de todos los productos"
+			},
+			"response": [
+				{
+					"name": "Get supermarket cities",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/supermarkets/{{existingSupermarket}}/cities",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"supermarkets",
+								"{{existingSupermarket}}",
+								"cities"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "95"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5f-HVUYz5eYylD/3lQTZyc8bD8eP4g\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 17:17:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"809bf130-c45d-4a5f-b688-d780777a9b55\",\n        \"name\": \"string\",\n        \"country\": \"string\",\n        \"citizens\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get supermarket city",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/supermarkets/{{existingSupermarket}}/cities/{{existingCity}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"supermarkets",
+						"{{existingSupermarket}}",
+						"cities",
+						"{{existingCity}}"
+					]
+				},
+				"description": "Obtiene un producto segun el ID."
+			},
+			"response": [
+				{
+					"name": "Get supermarket city",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/supermarkets/{{existingSupermarket}}/cities/{{existingCity}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"supermarkets",
+								"{{existingSupermarket}}",
+								"cities",
+								"{{existingCity}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "93"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5d-X7zYLic1qjZIJIgHQ/kWHldPy9E\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 17:17:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"809bf130-c45d-4a5f-b688-d780777a9b55\",\n    \"name\": \"string\",\n    \"country\": \"string\",\n    \"citizens\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Get not-associated supermarket city",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {",
+							"   pm.response.to.have.status(412);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"City with the given id is not associated to that supermarket\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/supermarkets/{{existingSupermarket}}/cities/{{existingCity2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"supermarkets",
+						"{{existingSupermarket}}",
+						"cities",
+						"{{existingCity2}}"
+					]
+				},
+				"description": "Ejemplo de un request para obtener un producto que no existe."
+			},
+			"response": [
+				{
+					"name": "Get not-associated supermarket city",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/supermarkets/{{existingSupermarket}}/cities/{{existingCity2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"supermarkets",
+								"{{existingSupermarket}}",
+								"cities",
+								"{{existingCity2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "121"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"79-9raSgnGhxF1XqKDDr+jCHEqghyM\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 17:18:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"City with the given id is not associated to that supermarket\",\n    \"error\": \"Precondition Failed\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update supermarkets cities",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\"{{existingCity}}\",\"44d446e6-6711-48ab-a161-e0ef24a35245\"]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/supermarkets/{{existingSupermarket}}/cities",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"supermarkets",
+						"{{existingSupermarket}}",
+						"cities"
+					]
+				},
+				"description": "Actualización de un producto segun el ID."
+			},
+			"response": [
+				{
+					"name": "Update supermarkets cities",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"{{existingCity}}\",\"44d446e6-6711-48ab-a161-e0ef24a35245\"]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/supermarkets/{{existingSupermarket}}/cities",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"supermarkets",
+								"{{existingSupermarket}}",
+								"cities"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "304"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"130-3+HjagXhH4UAsZKP2AeOE8sBJz4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 17:19:36 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"9f77c649-1f22-43d4-a145-efff05eac0c3\",\n    \"name\": \"string\",\n    \"lng\": 0,\n    \"lat\": 0,\n    \"webpage\": \"string\",\n    \"cities\": [\n        {\n            \"id\": \"809bf130-c45d-4a5f-b688-d780777a9b55\",\n            \"name\": \"string\",\n            \"country\": \"string\",\n            \"citizens\": 0\n        },\n        {\n            \"id\": \"44d446e6-6711-48ab-a161-e0ef24a35245\",\n            \"name\": \"Bogota\",\n            \"country\": \"Colombia\",\n            \"citizens\": 10000000\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Update supermarket cities with one wrong city",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"City with given Id cannot be found\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\"{{existingCity}}\",\"44d446e6-6711-48ab-a161-e0ef24a35245\",\"97abfb16-42e2-4aaa-954f-48123171c335\"]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/supermarkets/{{existingSupermarket}}/cities",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"supermarkets",
+						"{{existingSupermarket}}",
+						"cities"
+					]
+				},
+				"description": "Ejemplo de un request para actualizar un producto que no existe."
+			},
+			"response": [
+				{
+					"name": "Update supermarket cities with one wrong city",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"{{existingCity}}\",\"44d446e6-6711-48ab-a161-e0ef24a35245\",\"97abfb16-42e2-4aaa-954f-48123171c335\"]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/supermarkets/{{existingSupermarket}}/cities",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"supermarkets",
+								"{{existingSupermarket}}",
+								"cities"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "85"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"55-8m74lKASe+tVzosN5frGA3ul9ds\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 17:20:36 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"City with given Id cannot be found\",\n    \"error\": \"Not Found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete supermarket city",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/supermarkets/{{existingSupermarket}}/cities/{{existingCity}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"supermarkets",
+						"{{existingSupermarket}}",
+						"cities",
+						"{{existingCity}}"
+					]
+				},
+				"description": "Eliminación de un producto segun el ID"
+			},
+			"response": [
+				{
+					"name": "Delete supermarket city",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/supermarkets/{{existingSupermarket}}/cities/{{existingCity}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"supermarkets",
+								"{{existingSupermarket}}",
+								"cities",
+								"{{existingCity}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "210"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"d2-iWln9HVDMoaxZlX/xibCeFc2kPU\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 17:21:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"9f77c649-1f22-43d4-a145-efff05eac0c3\",\n    \"name\": \"string\",\n    \"lng\": 0,\n    \"lat\": 0,\n    \"webpage\": \"string\",\n    \"cities\": [\n        {\n            \"id\": \"44d446e6-6711-48ab-a161-e0ef24a35245\",\n            \"name\": \"Bogota\",\n            \"country\": \"Colombia\",\n            \"citizens\": 10000000\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete not-associated supermarket city",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {",
+							"   pm.response.to.have.status(412);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"City with the given id is not associated to that supermarket\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"historia\":null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/supermarkets/{{existingSupermarket}}/cities/{{existingCity}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"supermarkets",
+						"{{existingSupermarket}}",
+						"cities",
+						"{{existingCity}}"
+					]
+				},
+				"description": "Ejemplo de un request para eliminar un producto que no existe."
+			},
+			"response": [
+				{
+					"name": "Delete not-associated supermarket city",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"historia\":null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/supermarkets/{{existingSupermarket}}/cities/{{existingCity}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"supermarkets",
+								"{{existingSupermarket}}",
+								"cities",
+								"{{existingCity}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "121"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"79-9raSgnGhxF1XqKDDr+jCHEqghyM\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 18 Sep 2022 17:25:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"City with the given id is not associated to that supermarket\",\n    \"error\": \"Precondition Failed\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000/api/v1"
+		},
+		{
+			"key": "existingSupermarket",
+			"value": "9f77c649-1f22-43d4-a145-efff05eac0c3"
+		},
+		{
+			"key": "wrongSupermarket",
+			"value": "68cbe15f-8a32-4690-b920-ac36d56978a1"
+		},
+		{
+			"key": "existingCity",
+			"value": "809bf130-c45d-4a5f-b688-d780777a9b55"
+		},
+		{
+			"key": "wrongCity",
+			"value": "97abfb16-42e2-4aaa-954f-48123171c335"
+		},
+		{
+			"key": "existingSupermarket2",
+			"value": "97abfb16-42e2-4aaa-954f-48123171c335"
+		},
+		{
+			"key": "existingCity2",
+			"value": "68cbe15f-8a32-4690-b920-ac36d56978a1"
+		}
+	]
+}
